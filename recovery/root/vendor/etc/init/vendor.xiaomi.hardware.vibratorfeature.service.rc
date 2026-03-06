@@ -1,0 +1,46 @@
+on post-fs-data
+    chown system system /sys/bus/i2c/drivers/awinic_haptic/0-005a/f0_save
+    chown system system /sys/bus/i2c/drivers/awinic_haptic/0-005a/osc_save
+    chown system system /sys/bus/i2c/drivers/awinic_haptic/0-005a/custom_wave
+    chmod 0666  /sys/bus/i2c/drivers/awinic_haptic/0-005a/custom_wave
+#MIUI MOD:Haptic_MIUIHapticFrame
+    chown system system /sys/bus/i2c/drivers/sih_haptic_688X/0-006b/f0_save
+    chown system system /sys/bus/i2c/drivers/sih_haptic_688X/0-006b/osc_save
+    chown system system /sys/bus/i2c/drivers/sih_haptic_688X/0-006b/custom_wave
+    chmod 0666  /sys/bus/i2c/drivers/sih_haptic_688X/0-006b/custom_wave
+    chown system system /sys/bus/i2c/drivers/awinic_haptic/0-005a/f0
+    chmod 0666  /sys/bus/i2c/drivers/awinic_haptic/0-005a/f0
+#END Haptic_MIUIHapticFrame
+#MIUI MOD:Haptic_MIUIHapticFrame
+    chown system system /sys/bus/i2c/drivers/awinic_haptic/1-005a/f0_save
+    chown system system /sys/bus/i2c/drivers/awinic_haptic/1-005a/osc_save
+    chown system system /sys/bus/i2c/drivers/awinic_haptic/1-005a/custom_wave
+    chmod 0666  /sys/bus/i2c/drivers/awinic_haptic/1-005a/custom_wave
+    chown system system /sys/bus/i2c/drivers/sih_haptic_688X/1-006b/f0_save
+    chown system system /sys/bus/i2c/drivers/sih_haptic_688X/1-006b/osc_save
+    chown system system /sys/bus/i2c/drivers/sih_haptic_688X/1-006b/custom_wave
+    chmod 0666  /sys/bus/i2c/drivers/sih_haptic_688X/1-006b/custom_wave
+    chown system system /sys/bus/i2c/drivers/awinic_haptic/1-005a/f0
+    chmod 0666  /sys/bus/i2c/drivers/awinic_haptic/1-005a/f0
+#END Haptic_MIUIHapticFrame
+    # cal-file directory
+    mkdir /mnt/vendor/persist/haptics 0755 system system
+
+service vibratorfeature-hal-service /odm/bin/hw/vendor.xiaomi.hardware.vibratorfeature.service
+    class hal
+    user system
+    group system input audio
+    onrestart restart vibratorfeature
+#MIUI MOD:Haptic_MIUIHapticFrame
+on property:sys.boot_completed=1
+    # mode = interaction
+    setprop vendor.aihaptic.interaction.transient_intensity 100
+    setprop vendor.aihaptic.interaction.transient_sharpness 17
+    setprop vendor.aihaptic.interaction.continuous_intensity 100
+    setprop vendor.aihaptic.interaction.continuous_sharpness 17
+    # mode = warn
+    setprop vendor.aihaptic.warn.transient_intensity 100
+    setprop vendor.aihaptic.warn.transient_sharpness 56
+    setprop vendor.aihaptic.warn.continuous_intensity 65
+    setprop vendor.aihaptic.warn.continuous_sharpness 56
+#END Haptic_MIUIHapticFrame

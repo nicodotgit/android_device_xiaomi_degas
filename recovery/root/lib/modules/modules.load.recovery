@@ -1,0 +1,98 @@
+# Recovery-specific module load list for degas (Xiaomi 14T, MT6897)
+# Only modules required for TWRP recovery functionality:
+# binder, TEE/crypto, storage, USB, display, haptics, and essential platform drivers.
+
+# Binder / IPC
+millet_binder.ko
+binder_gki.ko
+binder_prio.ko
+
+# Power / scheduler essentials
+unionpower.ko
+powersave.ko
+reboot-mode.ko
+syscon-reboot-mode.ko
+
+# Clock / regulator
+spmi-mtk-mpu.ko
+fhctl.ko
+clk-dbg-mt6897.ko
+mtk-vmm-notifier.ko
+nvmem-mt635x-efuse.ko
+cpudvfs.ko
+mt6897-mt6368.ko
+mtk-dvfsrc-start.ko
+mtk-mmdvfs-v3-start.ko
+mtk-vmm-isp71-regulator.ko
+clk-disable-unused.ko
+mtk-pm-domain-disable-unused.ko
+
+# Thermal (needed for stability during decrypt)
+soc_temp_lvts.ko
+pmic_temp.ko
+thermal-generic-adc.ko
+thermal_trace.ko
+board_temp.ko
+vtskin_temp.ko
+thermal_interface.ko
+mi_thermal_interface.ko
+
+# SCP / mailbox / IPI
+mtk_rpmsg_mbox.ko
+mtk-mbox.ko
+mtk_tinysys_ipi.ko
+scp.ko
+mcupm.ko
+
+# TEE / security (MiTEE + GZ Trusty)
+cmdq-sec-drv.ko
+gz_trusty_mod.ko
+gz_ipc_mod.ko
+gz_irq_mod.ko
+gz_virtio_mod.ko
+gz_tz_system.ko
+gz_main_mod.ko
+gz_log_mod.ko
+tmem_ffa.ko
+mtk_sec_heap.ko
+sapu.ko
+widevine_driver.ko
+sec.ko
+xiaomi_spi_tee.ko
+mtk_disp_sec.ko
+
+# Storage / UFS helpers
+atf_logger.ko
+
+# USB (recovery ADB + MTP)
+c2k_usb.ko
+c2k_usb_f_via_atc.ko
+c2k_usb_f_via_ets.ko
+c2k_usb_f_via_modem.ko
+mtk_u_ether.ko
+mtk_usb_f_rndis.ko
+mtk-composite.ko
+
+# Display (needed for TWRP UI)
+gpueb.ko
+mtk_gpu_hal.ko
+mtk_gpufreq_wrapper.ko
+mtk_gpufreq_mt6897.ko
+ged.ko
+mali_prot_alloc_mt6897_r44.ko
+mali_mgm_mt6897_r44.ko
+mali_kbase_mt6897_r44.ko
+
+# Haptics (vibration feedback)
+si_haptic.ko
+haptic.ko
+
+# NFC (p73 secure element)
+nxp_i2c.ko
+p73.ko
+
+# Platform misc
+hardwareinfo.ko
+simtray.ko
+mtk-pwm.ko
+sspm_v3.ko
