@@ -10,10 +10,10 @@
 | **Model** | Xiaomi 14T (2406APNFAG) |
 | **SoC** | MediaTek Dimensity 8300-Ultra (MT6897) |
 | **RAM** | 12 GB LPDDR5 |
-| **Storage** | 256 / 512 GB UFS 3.1 |
+| **Storage** | 256 / 512 GB UFS 4.0 |
 | **Display** | 6.67" AMOLED, 2712 × 1220, 144 Hz |
 | **Battery** | 5000 mAh, 67W wired |
-| **Android** | Ships with Android 14 (MIUI / HyperOS) |
+| **Android** | Ships with Android 14 (HyperOS) |
 | **TEE** | MiTEE (MediaTek Trusted Execution Environment) |
 | **Encryption** | f2fs `aes-256-xts`:`aes-256-cts`:v2+inlinecrypt |
 
